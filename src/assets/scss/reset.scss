@@ -1,0 +1,243 @@
+.n-config-provider {
+  height: 100%;
+}
+// .n-modal-mask {
+//   background-color: transparent;
+// }
+
+// .n-input,
+// .n-input n-input--textarea,
+// .n-base-selection {
+//   background-color: transparent;
+//   border-radius: 0;
+//   --n-border: 1px solid #007bff !important;
+//   --n-border-hover: 1px solid #007bff !important;
+//   --n-border-focus: 1px solid #007bff !important;
+
+//   .n-input__input-el,
+//   .n-input__textarea-el {
+//     color: #fff;
+//   }
+
+//   &:not(.n-input--disabled).n-input--focus,
+//   &.n-input--error-status:not(.n-input--disabled).n-input--focus {
+//     background-color: transparent;
+//   }
+// }
+// .n-input-group-label .n-input-group-label__border {
+//   border-color: #007bff;
+// }
+// .n-base-select-menu {
+//   background-color: rgba(0, 123, 255, 0.6);
+//   .n-base-select-option {
+//     color: #fff;
+//   }
+//   .n-base-select-option.n-base-select-option--pending::before {
+//     background-color: rgba(0, 123, 255, 1);
+//   }
+// }
+// .n-base-select-menu .n-base-select-option:active,
+// .n-base-select-menu .n-base-select-option.n-base-select-option--selected,
+// .n-base-select-menu .n-base-select-option .n-base-select-option__check {
+//   color: #007bff;
+// }
+// .n-base-selection.n-base-selection--error-status:not(
+//     .n-base-selection--disabled
+//   ).n-base-selection--active
+//   .n-base-selection-label {
+//   background-color: transparent;
+// }
+
+// .n-button {
+//   border-radius: 0;
+//   background-color: rgba(0, 123, 255, 0.4);
+//   color: #fff;
+//   // --n-border-hover: #007bff!important;
+//   // .n-button__border {
+//   //   border: 1px solid #007bff;
+//   // }
+// }
+// .n-button--default-type:not(.n-button--disabled):hover {
+//   color: #fff;
+//   background-color: #007bff;
+// }
+// .n-button--default-type:not(.n-button--disabled):hover .n-button__state-border,
+// .n-button--default-type .n-button__state-border {
+//   border-color: #007bff !important;
+// }
+
+// .n-dropdown-menu {
+//   background-color: rgba(0, 123, 255, 0.4);
+//   border-radius: 0;
+//   color: #fff;
+//   .n-dropdown-option-body__label {
+//     color: #fff;
+//   }
+// }
+
+// .n-dropdown-menu
+//   .n-dropdown-option
+//   .n-dropdown-option-body:not(
+//     .n-dropdown-option-body--disabled
+//   ).n-dropdown-option-body--pending::before {
+//   background-color: rgba(0, 123, 255);
+// }
+
+// .n-message {
+//   border-radius: 0;
+//   padding: 5px 20px;
+//   // background-color: rgba(0, 123, 255, 0.6);
+//   color: #fff;
+// }
+// .n-message-container.n-message-container--top {
+//   top: 80px;
+// }
+// .n-message--warning-type,
+// .n-button--warning-type {
+//   background-color: rgb(240, 160, 32, 0.4);
+// }
+// .n-message--success-type,
+// .n-button--success-type {
+//   background-color: rgb(24, 160, 88, 0.4);
+// }
+// .n-message--error-type,
+// .n-button--error-type {
+//   background-color: rgb(208, 48, 80, 0.4);
+// }
+// .n-color-picker-trigger {
+//   border-radius: 0;
+// }
+// .n-color-picker-panel {
+//   background-color: rgba(0, 123, 255, 1);
+//   color: #fff;
+// }
+// .n-popover:not(.n-popover--raw),
+// .n-dialog {
+//   background-color: rgba(0, 123, 255, 0.4);
+//   border-radius: 0;
+//   backdrop-filter: blur(10px);
+//   color: #fff;
+// }
+// .n-popover-shared .n-popover-arrow-wrapper .n-popover-arrow {
+//   background-color: rgba(0, 123, 255, 0.4);
+// }
+// .n-dialog .n-dialog__title {
+//   color: #fff;
+// }
+
+// .n-tree {
+//   &.n-tree--block-line
+//     .n-tree-node:not(.n-tree-node--disabled).n-tree-node--selectable:not(
+//       .n-tree-node--selected
+//     ):active {
+//     background-color: #007bff !important;
+//   }
+//   &.n-tree--block-line .n-tree-node:not(.n-tree-node--disabled):hover {
+//     background-color: rgba(0, 128, 255, 0.4);
+//     .n-tree-node-content {
+//       color: #fff;
+//     }
+//   }
+//   .n-tree-node.n-tree-node--highlight .n-tree-node-content .n-tree-node-content__text {
+//     border: 0;
+//   }
+//   &.n-tree--block-line .n-tree-node:not(.n-tree-node--disabled).n-tree-node--selected,
+//   &.n-tree--block-line .n-tree-node:not(.n-tree-node--disabled).n-tree-node--pending {
+//     background-color: rgba(0, 128, 255, 0.2);
+//   }
+
+//   .n-tree-node {
+//     border-radius: 0;
+//   }
+
+//   .n-tree-node-wrapper {
+//     .n-tree-node-content {
+//       color: #ccc;
+//     }
+//   }
+// }
+// .n-radio {
+//   color: #fff;
+//   --n-box-shadow: inset 0 0 0 1px #0080ff;
+//   --n-box-shadow-active: inset 0 0 0 1px #0080ff;
+//   --n-box-shadow-disabled: inset 0 0 0 1px #0080ff;
+//   --n-box-shadow-focus: inset 0 0 0 1px #0080ff, 0 0 0 2px rgba(24, 160, 88, 0.2) !important;
+//   --n-box-shadow-hover: inset 0 0 0 1px #0080ff;
+//   .n-radio__label {
+//     color: #8ac5ff;
+//   }
+//   .n-radio__dot {
+//     background-color: transparent;
+//   }
+//   &:not(.n-radio--disabled):hover .n-radio__dot,
+//   .n-radio__dot.n-radio__dot--checked {
+//     box-shadow: inset 0 0 0 1px #0080ff;
+//   }
+//   .n-radio__dot::before {
+//     background-color: #0080ff;
+//   }
+// }
+
+// .n-checkbox.n-checkbox--checked .n-checkbox-box .n-checkbox-box__border,
+// .n-checkbox.n-checkbox--indeterminate .n-checkbox-box .n-checkbox-box__border,
+// .n-checkbox:hover .n-checkbox-box .n-checkbox-box__border {
+//   border-color: #007bff;
+// }
+// .n-checkbox .n-checkbox-box .n-checkbox-box__border {
+//   border-radius: 0;
+// }
+// .n-checkbox.n-checkbox--checked .n-checkbox-box,
+// .n-checkbox.n-checkbox--indeterminate .n-checkbox-box {
+//   background-color: #0080ff;
+// }
+// .n-checkbox .n-checkbox-box {
+//   background-color: transparent;
+// }
+// .n-checkbox.n-checkbox--checked:focus:not(:active) .n-checkbox-box .n-checkbox-box__border,
+// .n-checkbox.n-checkbox--indeterminate:focus:not(:active) .n-checkbox-box .n-checkbox-box__border,
+// .n-checkbox:focus:not(:active) .n-checkbox-box .n-checkbox-box__border {
+//   box-shadow:
+//     inset 0 0 0 1px #0080ff,
+//     0 0 0 2px rgba(0, 128, 255, 0.2) !important;
+//   border-color: #007bff !important;
+// }
+
+// .n-empty {
+//   .n-empty__description,
+//   .n-empty__icon {
+//     color: #8ac5ff;
+//   }
+// }
+
+// /* 禁止选中文字 */
+// .select-font {
+//   -moz-user-select: none; /*火狐*/
+//   -webkit-user-select: none; /*webkit浏览器*/
+//   -ms-user-select: none; /*IE10*/
+//   -khtml-user-select: none; /*早期浏览器*/
+//   user-select: none;
+// }
+
+// svg {
+//   outline: none;
+// }
+
+// .n-data-table {
+//   --n-th-color-modal: #007bff !important;
+//   --n-border-color-modal: #007bff !important;
+//   --n-merged-td-color-striped: rgba(0, 123, 255, 0.2) !important;
+//   --n-td-color-hover-modal: rgba(0, 123, 255, 0.4) !important;
+//   --n-th-text-color: #fff !important;
+//   --n-td-text-color: #fff !important;
+//   --n-td-color-modal: transparent !important;
+// }
+// .n-pagination {
+//   --n-item-color-disabled: rgba(0, 123, 255, 0.4) !important;
+//   --n-button-icon-color: #fff !important;
+//   --n-item-color-hover: rgba(0, 123, 255, 0.2) !important;
+//   --n-item-text-color-hover: rgb(0, 123, 255) !important;
+//   --n-item-text-color: #fff !important;
+//   --n-button-color: #007bff !important;
+//   --n-button-border: 1px solid #007bff !important;
+//   --n-item-border-disabled: 1px solid rgba(0, 123, 255, 0.6) !important;
+// }

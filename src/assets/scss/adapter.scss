@@ -1,0 +1,27 @@
+/* 默认样式 */
+body {
+  font-size: 16px;
+}
+
+/* 适配移动设备 - 手机 */
+@media (max-width: 767px) {
+}
+
+/* 适配移动设备 - 平板 */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* 适配普通桌面设备 */
+@media (min-width: 1024px) and (max-width: 1279px) {
+}
+
+/* 适配大屏幕桌面设备 */
+@media (min-width: 1024px) and (max-width: 1439px) {
+}
+
+/* 适配更大的屏幕设备 */
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+@media (min-width: 1921px) {
+}

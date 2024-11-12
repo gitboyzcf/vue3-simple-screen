@@ -1,0 +1,22 @@
+# 顶层editorconfig文件标识
+root = true
+
+########## 针对所有文件适用的规则 ##########
+[*]
+# 编码格式
+charset = utf-8
+# 缩进符使用的风格 （tab ｜ space）
+indent_style = space
+# 缩进大小
+indent_size = 2
+# 控制换行类型(lf | cr | crlf)
+end_of_line = lf
+# 文件最后添加空行
+insert_final_newline = true
+# 行开始是不是清除空格
+trim_trailing_whitespace = true
+
+
+############# 针对md的规则 ###############
+[*.md]
+trim_trailing_whitespace = false
