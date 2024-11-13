@@ -1,84 +1,6 @@
 import * as echarts from 'echarts'
 export const chartOptions = {
-  setOption1(data) {
-    const option = {
-      legend: {
-        data: ['Allocated Budget', 'Actual Spending'],
-        textStyle: {
-          color: '#fff',
-          fontSize: 14
-        }
-      },
-
-      radar: {
-        shape: 'circle', // 外环的形状（圆形/多边形）
-        splitNumber: 5, // 外环圈数
-        indicator: [
-          // 每项指标的最大值设置
-          // { name: 'Sales', max: 6500 },
-          // { name: 'Administration', max: 16000 },
-          // { name: 'Information Technology', max: 30000 },
-          // { name: 'Customer Support', max: 38000 },
-          // { name: 'Development', max: 52000 },
-          // { name: 'Marketing', max: 25000 }
-          { name: 'Sales' },
-          { name: 'Administration' },
-          { name: 'Information Technology' },
-          { name: 'Customer Support' },
-          { name: 'Development' },
-          { name: 'Marketing' }
-        ],
-        splitLine: {
-          // 外环分割线样式
-          lineStyle: {
-            color: '#45BCE4',
-            type: 'dashed'
-          }
-        },
-        splitArea: {
-          show: false
-        },
-        axisLine: {
-          // 坐标轴线样式设置
-          lineStyle: {
-            color: '#45BCE4'
-          }
-        }
-      },
-      series: [
-        {
-          name: 'Budget vs spending',
-          type: 'radar',
-          data: [
-            {
-              value: [4200, 3000, 20000, 35000, 50000, 18000],
-              name: 'Allocated Budget',
-              itemStyle: {
-                // 多边形线颜色
-                color: '#47EB99'
-              },
-              areaStyle: {
-                opacity: 0.5
-              }
-            },
-            {
-              value: [5000, 14000, 28000, 26000, 42000, 21000],
-              name: 'Actual Spending',
-              itemStyle: {
-                color: '#47EAEB'
-              },
-              areaStyle: {
-                opacity: 0.5
-              }
-            }
-          ]
-        }
-      ]
-    }
-    return option
-  },
-
-  setOption2(data) {
+  setOption2() {
     function Pie() {
       let dataArr = []
       for (var i = 0; i < 150; i++) {
@@ -259,6 +181,796 @@ export const chartOptions = {
             show: false
           },
           data: Pie()
+        }
+      ]
+    }
+    return option
+  },
+  setSbxxOption(data) {
+    const option = {
+      grid: {
+        top: '0%',
+        left: '0',
+        right: '0',
+        bottom: '-5%'
+      },
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: '#031e559c',
+        formatter: '{b}: {c}',
+        textStyle: {
+          color: '#fff'
+        }
+      },
+      legend: {
+        data: ['在线', '离线', '故障', '身份认证失败', '证书过期', '视频源头断开'],
+        bottom: '0%',
+        x: 'center',
+        icon: 'rect',
+        itemWidth: 10,
+        itemHeight: 10,
+        textStyle: {
+          color: '#fff'
+        }
+      },
+      series: [
+        {
+          type: 'pie',
+          selectedMode: 'single',
+          center: ['50%', '46%'],
+          radius: [0, '40%'],
+          label: {
+            position: 'inner',
+            fontSize: 14,
+            color: '#fff'
+          },
+          labelLine: {
+            show: false
+          },
+          data: [
+            { value: 1, name: '身份认证失败' },
+            { value: 1, name: '证书过期' },
+            { value: 2, name: '视频源头断开' }
+          ]
+        },
+        {
+          type: 'pie',
+          radius: ['60%', '80%'],
+          center: ['50%', '46%'],
+          labelLine: {
+            show: false,
+            length: 20
+          },
+          label: {
+            color: '#fff',
+            position: 'inner',
+            rich: {
+              a: {
+                color: '#6E7079',
+                lineHeight: 22,
+                align: 'center'
+              },
+              hr: {
+                borderColor: '#8C8D8E',
+                width: '100%',
+                borderWidth: 1,
+                height: 0
+              },
+              b: {
+                color: '#4C5058',
+                fontSize: 14,
+                fontWeight: 'bold',
+                lineHeight: 33
+              },
+              per: {
+                color: '#fff',
+                backgroundColor: '#4C5058',
+                padding: [3, 4],
+                borderRadius: 4
+              }
+            }
+          },
+          data: [
+            { value: 70, name: '在线' },
+            { value: 10, name: '离线' },
+            { value: 2, name: '故障' }
+          ]
+        }
+      ]
+    }
+    return option
+  },
+  setYhqkOption(data, type = 0) {
+    const color = ['#33B5FF ', '#22E59C']
+    const legendData = ['登录次数', '登录人数']
+    const series = []
+    const xPoint = []
+    switch (type) {
+      case 0:
+        for (let i = 0; i < 10; i++) {
+          let currentTime = new Date().getTime() - 3600 * 1000 * i
+          let time = new Date(currentTime).toLocaleTimeString()
+          xPoint.push(time)
+        }
+        for (let i = 0; i < legendData.length; i++) {
+          const curData = []
+          for (let j = 0; j < 10; j++) {
+            curData.push(Math.floor(Math.random() * 100))
+          }
+
+          let obj = {
+            name: legendData[i],
+            type: 'line',
+            symbol: 'circle',
+            symbolSize: 6,
+            itemStyle: {
+              color: color[i % color.length],
+              borderWidth: 6,
+              borderColor: 'rgba(51, 181, 255, .2)'
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: color[i % color.length] // 线条颜色
+              }
+            },
+            label: {
+              show: false,
+              color: 'rgba(255,255,255, 0.6)'
+            },
+            data: curData
+          }
+          series.push(obj)
+        }
+        break
+      case 1:
+        for (let i = 0; i < 7; i++) {
+          // 修改循环次数为7
+          let currentTime = new Date().getTime() - 24 * 3600 * 1000 * i // 修改为每天减少一天的时间
+          let time = new Date(currentTime).toLocaleDateString() // 使用 toLocaleDateString 获取日期部分
+          xPoint.push(time)
+        }
+        for (let i = 0; i < legendData.length; i++) {
+          const curData = []
+          for (let j = 0; j < 7; j++) {
+            curData.push(Math.floor(Math.random() * 100))
+          }
+
+          let obj = {
+            name: legendData[i],
+            type: 'line',
+            symbol: 'circle',
+            symbolSize: 6,
+            itemStyle: {
+              color: color[i % color.length],
+              borderWidth: 6,
+              borderColor: 'rgba(51, 181, 255, .2)'
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: color[i % color.length] // 线条颜色
+              }
+            },
+            label: {
+              show: false,
+              color: 'rgba(255,255,255, 0.6)'
+            },
+            data: curData
+          }
+          series.push(obj)
+        }
+        break
+      case 2:
+        for (let i = 0; i < 30; i++) {
+          // 修改循环次数为30
+          let currentTime = new Date().getTime() - 24 * 3600 * 1000 * i // 修改为每天减少一天的时间
+          let time = new Date(currentTime).toLocaleDateString() // 使用 toLocaleDateString 获取日期部分
+          xPoint.push(time)
+        }
+        for (let i = 0; i < legendData.length; i++) {
+          const curData = []
+          for (let j = 0; j < 30; j++) {
+            curData.push(Math.floor(Math.random() * 100))
+          }
+
+          let obj = {
+            name: legendData[i],
+            type: 'line',
+            symbol: 'circle',
+            symbolSize: 6,
+            itemStyle: {
+              color: color[i % color.length],
+              borderWidth: 6,
+              borderColor: 'rgba(51, 181, 255, .2)'
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: color[i % color.length] // 线条颜色
+              }
+            },
+            label: {
+              show: false,
+              color: 'rgba(255,255,255, 0.6)'
+            },
+            data: curData
+          }
+          series.push(obj)
+        }
+        break
+    }
+
+    const option = {
+      grid: {
+        top: '15%',
+        bottom: '15%',
+        left: '10%',
+        right: '5%'
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        axisLabel: {
+          // X轴刻度标签
+          color: 'rgba(255, 255, 255, 0.6)',
+          fontSize: 12
+        },
+        axisLine: {
+          // X轴线
+          show: true,
+          lineStyle: {
+            color: 'rgba(255, 255, 255, .4)'
+          }
+        },
+        splitLine: {
+          // 网格线
+          show: true,
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+            color: 'rgba(255, 255, 255, .2)'
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        data: xPoint
+      },
+      yAxis: {
+        type: 'value',
+        axisLabel: {
+          color: 'rgba(255, 255, 255, .6)',
+          fontSize: 12
+        },
+        splitLine: {
+          // 网格线
+          show: true,
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+            color: 'rgba(255, 255, 255, .2)'
+          }
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      legend: {
+        show: false,
+        data: legendData,
+        left: 'center',
+        top: 0,
+        itemHeight: 8,
+        textStyle: {
+          fontSize: 14,
+          color: '#fff'
+        },
+        itemStyle: {
+          borderWidth: 6,
+          borderColor: 'rgba(51, 181, 255, .2)'
+        }
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(33, 85, 154, .6)',
+        borderWidth: 1,
+        borderColor: {
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [
+            {
+              offset: 0,
+              color: 'rgba(85, 149, 233, .6)' // 0% 处的颜色
+            },
+            {
+              offset: 1,
+              color: 'rgba(85, 149, 233, 0)' // 100% 处的颜色
+            }
+          ],
+          global: false // 缺省为 false
+        },
+        padding: 8,
+        textStyle: {
+          color: '#fff'
+        },
+        axisPointer: {
+          lineStyle: {
+            type: 'dashed',
+            color: 'rgba(255, 255, 255, .6)'
+          }
+        },
+        extraCssText: 'box-shadow: 2px 2px 16px 1px rgba(0, 39, 102, 0.16)',
+        formatter: function (params) {
+          let content = `<div style='font-size: 14px; color: #fff;'>${params[0].name}</div>`
+          if (Array.isArray(params)) {
+            for (let i = 0; i < params.length; i++) {
+              content += `
+                     <div style='display: flex; align-items: center; padding: 4px; background: #21559A; margin-top: 4px; color: #fff;'>
+                       <div style='width: 10px; height: 10px; background: ${params[i].color}; margin-right: 8px;'></div>
+                       <div style='font-size: 12px; margin-right: 32px;'>${params[i].seriesName}</div>
+                       <div style='font-size: 14px;'>${params[i].value}</div>
+                     </div>
+                   `
+            }
+          }
+          return content
+        }
+      },
+      series
+    }
+    return option
+  },
+  setBjzxOption(data, type = 0) {
+    const color = ['#379ED7', '#F0BC1E']
+    const legendData = ['已处理', '未处理']
+    const series = []
+    const xPoint = []
+    switch (type) {
+      case 0:
+        for (let i = 0; i < 10; i++) {
+          let currentTime = new Date().getTime() - 3600 * 1000 * i
+          let time = new Date(currentTime).toLocaleTimeString()
+          xPoint.push(time)
+        }
+        for (let i = 0; i < legendData.length; i++) {
+          const curData = []
+          for (let j = 0; j < 10; j++) {
+            curData.push(Math.floor(Math.random() * 100))
+          }
+
+          let obj = {
+            name: legendData[i],
+            type: 'line',
+            symbol: 'circle',
+            symbolSize: 6,
+            itemStyle: {
+              color: color[i % color.length],
+              borderWidth: 6,
+              borderColor: 'rgba(51, 181, 255, .2)'
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: color[i % color.length] // 线条颜色
+              }
+            },
+            label: {
+              show: false,
+              color: 'rgba(255,255,255, 0.6)'
+            },
+            data: curData
+          }
+          series.push(obj)
+        }
+        break
+      case 1:
+        for (let i = 0; i < 7; i++) {
+          // 修改循环次数为7
+          let currentTime = new Date().getTime() - 24 * 3600 * 1000 * i // 修改为每天减少一天的时间
+          let time = new Date(currentTime).toLocaleDateString() // 使用 toLocaleDateString 获取日期部分
+          xPoint.push(time)
+        }
+        for (let i = 0; i < legendData.length; i++) {
+          const curData = []
+          for (let j = 0; j < 7; j++) {
+            curData.push(Math.floor(Math.random() * 100))
+          }
+
+          let obj = {
+            name: legendData[i],
+            type: 'line',
+            symbol: 'circle',
+            symbolSize: 6,
+            itemStyle: {
+              color: color[i % color.length],
+              borderWidth: 6,
+              borderColor: 'rgba(51, 181, 255, .2)'
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: color[i % color.length] // 线条颜色
+              }
+            },
+            label: {
+              show: false,
+              color: 'rgba(255,255,255, 0.6)'
+            },
+            data: curData
+          }
+          series.push(obj)
+        }
+        break
+      case 2:
+        for (let i = 0; i < 30; i++) {
+          // 修改循环次数为30
+          let currentTime = new Date().getTime() - 24 * 3600 * 1000 * i // 修改为每天减少一天的时间
+          let time = new Date(currentTime).toLocaleDateString() // 使用 toLocaleDateString 获取日期部分
+          xPoint.push(time)
+        }
+        for (let i = 0; i < legendData.length; i++) {
+          const curData = []
+          for (let j = 0; j < 30; j++) {
+            curData.push(Math.floor(Math.random() * 100))
+          }
+
+          let obj = {
+            name: legendData[i],
+            type: 'line',
+            symbol: 'circle',
+            symbolSize: 6,
+            itemStyle: {
+              color: color[i % color.length],
+              borderWidth: 6,
+              borderColor: 'rgba(51, 181, 255, .2)'
+            },
+            lineStyle: {
+              normal: {
+                width: 2,
+                color: color[i % color.length] // 线条颜色
+              }
+            },
+            label: {
+              show: false,
+              color: 'rgba(255,255,255, 0.6)'
+            },
+            data: curData
+          }
+          series.push(obj)
+        }
+        break
+    }
+
+    const option = {
+      grid: {
+        top: '15%',
+        bottom: '15%',
+        left: '10%',
+        right: '5%'
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        axisLabel: {
+          // X轴刻度标签
+          color: 'rgba(255, 255, 255, 0.6)',
+          fontSize: 12
+        },
+        axisLine: {
+          // X轴线
+          show: true,
+          lineStyle: {
+            color: 'rgba(255, 255, 255, .4)'
+          }
+        },
+        splitLine: {
+          // 网格线
+          show: true,
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+            color: 'rgba(255, 255, 255, .2)'
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        data: xPoint
+      },
+      yAxis: {
+        type: 'value',
+        axisLabel: {
+          color: 'rgba(255, 255, 255, .6)',
+          fontSize: 12
+        },
+        splitLine: {
+          // 网格线
+          show: true,
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+            color: 'rgba(255, 255, 255, .2)'
+          }
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      legend: {
+        show: false,
+        data: legendData,
+        left: 'center',
+        top: 0,
+        itemHeight: 8,
+        textStyle: {
+          fontSize: 14,
+          color: '#fff'
+        },
+        itemStyle: {
+          borderWidth: 6,
+          borderColor: 'rgba(51, 181, 255, .2)'
+        }
+      },
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(33, 85, 154, .6)',
+        borderWidth: 1,
+        borderColor: {
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [
+            {
+              offset: 0,
+              color: 'rgba(85, 149, 233, .6)' // 0% 处的颜色
+            },
+            {
+              offset: 1,
+              color: 'rgba(85, 149, 233, 0)' // 100% 处的颜色
+            }
+          ],
+          global: false // 缺省为 false
+        },
+        padding: 8,
+        textStyle: {
+          color: '#fff'
+        },
+        axisPointer: {
+          lineStyle: {
+            type: 'dashed',
+            color: 'rgba(255, 255, 255, .6)'
+          }
+        },
+        extraCssText: 'box-shadow: 2px 2px 16px 1px rgba(0, 39, 102, 0.16)',
+        formatter: function (params) {
+          let content = `<div style='font-size: 14px; color: #fff;'>${params[0].name}</div>`
+          if (Array.isArray(params)) {
+            for (let i = 0; i < params.length; i++) {
+              content += `
+                     <div style='display: flex; align-items: center; padding: 4px; background: #21559A; margin-top: 4px; color: #fff;'>
+                       <div style='width: 10px; height: 10px; background: ${params[i].color}; margin-right: 8px;'></div>
+                       <div style='font-size: 12px; margin-right: 32px;'>${params[i].seriesName}</div>
+                       <div style='font-size: 14px;'>${params[i].value}</div>
+                     </div>
+                   `
+            }
+          }
+          return content
+        }
+      },
+      series
+    }
+    return option
+  },
+  setBjlxOption(data) {
+    var bgImg =
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbYAAAARCAYAAACxZ4mSAAAAAXNSR0IArs4c6QAABANJREFUeF7t3O9rG3UcB/D35y5dmjjbLq5JLJsynOgqA2c721lW7HCgCCLI9gf4QHFbQrOBj/dYWFOaqugD/wCHIIIoFKWsiza46kCWFeZQ6ixJusW0m+mP3N1HkiWhe3aPZN69A3lw3/t87+79+jz4EDgi8MFn/w0N7irhgOHA9EFcRqQABSjgawHxQ/rBy/qM7aD8y6is+CEvM1KAAhTws4DnB9vQvMYAdOWG5YafG83sFKAABfwi4OnBduRzDTlP4Om7S1jMn5QtvzSVOSlAAQr4WcC7g01Vhi/h2UoNpcVX5I6fm8zsFKAABfwk4NnBduiy9hmC0MKI3PRTQ5mVAhSggN8FPDnYBq5oWKvY32UjPzsmlt+bzPwUoAAF/CTgvcGmKoez6K/V8NfVMan4qZnMSgEKUIACgOcG29C87hFFYP6I/MEGU4ACFKCA/wQ8Ndj6r+nO0Cr2LdxCHifF9l87mZgCFKAABR4YbHsmNGQZSEIRqtOoYsNcw9RyBHbcRgLAzub6ll1D5vZNbEQPIGEAXY11gbWpmK6kpIITasZGcFoUkfo5R+AELHy0fA534mm8B0G0ya92DZ+svC+FaFrfMYC+xroB3bLwWfmc/OmqTarG4A/or5hY+m1Y1lztYREFKEABCnhO4IHB1juhr5qC4VZKB5gppSQbS+sxAUa3pZ8tpGS2d1JHTcWxdr0gWxqXmfpxbFKHRPHatj0/FVLy9e60vhAA3th2j6ullHwZy+hBsfBWu15wrTAuF92KH8rqk4YDXTgqS273sI4CFKAABbwn0B5sXRMa6RScNnD//xQVqBRXMR2JINxhIyFAR/OX191SBZnYI+hAAEkBgk2WamEVUzgvGzivnfFuJAGEm9fahIWp4j+oxXuQgOLR5nqtZiJTLqMa68YZAXoa9wDszSCmV0/J327IB2a0W8LYe+Ul5CHiuNnDGgpQgAIU8KZAe7DFJ/UEFM+1YmoAXxQT8ms0rW8awPOtdQv46nZKfo6n9XUAh9v1gm+K45KrH0cn9bihGGmds018t5KUuXhaXwZQ/zY+ClwqpuT7aFpHDOB4u14xv3JWvnVFrmoO/Ij+9U38nh+Te672sIgCFKAABTwr0BhskQu6d0cAb8O5/5akAyyXUvJp7wcaNzvwLlpvTypKhRQ+7ruAx6wAThkKozGgBOViFh/iotg9ae0JCs7U30xsXmutdB2Z3U+h0wwiIYodTc17BROZvjJMuwtJEXQ21gXrBQdTOCvrbtRfzOk+qaKWG5NbbupZQwEKUIAC3hb4X78VeXBOd4UVj+eO4jpE1NutYjoKUIACFHAjIENzOuCm8GGssRSKMBYXBqX6MD4fn4kCFKAABf57gX8BSq0+Tbg1W4gAAAAASUVORK5CYII='
+
+    var datalist = [
+      {
+        name: '物品出界报警',
+        value: 189
+      },
+      {
+        name: '围界入侵报警',
+        value: 168
+      },
+      {
+        name: '检测未穿戴工服',
+        value: 45
+      },
+      {
+        name: '烟雾报警',
+        value: 9
+      },
+      {
+        name: '火焰报警',
+        value: 2
+      }
+    ]
+
+    const option = {
+      //你的代码
+      grid: {
+        left: '15%',
+        right: '5%',
+        bottom: '10%',
+        top: '5%'
+      },
+      xAxis: {
+        show: false,
+        type: 'value'
+      },
+      yAxis: [
+        {
+          type: 'category',
+          inverse: true,
+          axisLabel: {
+            color: '#fff',
+            fontSize: 14,
+            margin: 10,
+            formatter: (name, index) => {
+              const id = index + 1
+              return `{count|TOP}{num${index}|0${id}}`
+            },
+            rich: {
+              count: {
+                width: 32,
+                height: 22,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                align: 'center',
+                color: '#ffffff',
+                fontSize: 16
+              },
+              num0: {
+                width: 22,
+                height: 22,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                align: 'center',
+                color: '#f43339',
+                fontSize: 16
+              },
+              num1: {
+                width: 22,
+                height: 22,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                align: 'center',
+                color: '#ffff64',
+                fontSize: 16
+              },
+              num2: {
+                width: 22,
+                height: 22,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                align: 'center',
+                color: '#3b9bf8',
+                fontSize: 16
+              },
+              num3: {
+                width: 22,
+                height: 22,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                align: 'center',
+                color: '#0ec289',
+                fontSize: 16
+              },
+              num4: {
+                width: 22,
+                height: 22,
+                fontStyle: 'italic',
+                fontWeight: 'bold',
+                align: 'center',
+                color: '#0ec289',
+                fontSize: 16
+              }
+            }
+          },
+          splitLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          },
+          data: datalist.map((el) => {
+            return el.name
+          })
+        },
+        {
+          type: 'category',
+          inverse: true,
+          axisTick: 'none',
+          axisLine: 'none',
+          show: true,
+          axisLabel: {
+            verticalAlign: 'top',
+            textStyle: {
+              color: '#ffffff',
+              fontSize: '14',
+              padding: [-5, 0, 0, -20]
+            }
+          },
+          data: datalist.map((el) => {
+            return el.value
+          })
+        }
+      ],
+      series: [
+        {
+          name: '值',
+          type: 'bar',
+          itemStyle: {
+            normal: {
+              // barBorderRadius: 30,
+              color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [
+                {
+                  offset: 0,
+                  color: 'rgba(24, 144, 254, 1)'
+                },
+                {
+                  offset: 0.5,
+                  color: '#16599b'
+                },
+                {
+                  offset: 1,
+                  color: '#0f4581'
+                }
+              ]),
+              barBorderRadius: 2
+            }
+          },
+          barWidth: 8,
+          data: datalist,
+          label: {
+            show: true,
+            // offset: [30, -16],
+            padding: [10, 0, 10, 10],
+            verticalAlign: 'top',
+            color: '#75d8ff',
+            fontWeight: 500,
+            position: 'left',
+            fontSize: 16,
+            align: 'left',
+            formatter: function (params) {
+              return params.data.name
+            }
+          }
+        },
+        {
+          type: 'pictorialBar',
+          barWidth: '18',
+          z: 99,
+          silent: true,
+          barCategoryGap: 20,
+          symbol: 'image://' + bgImg,
+          symbolOffset: [-45, 8, 50, 0],
+          symbolClip: false,
+          symbolBoundingData: 310,
+          symbolPosition: 'center',
+          symbolSize: ['100%', '100%'],
+          label: {
+            show: false
+          },
+          data: [300, 300, 300, 300, 300]
         }
       ]
     }

@@ -23,11 +23,9 @@
       </swiper-slide>
     </swiper>
     <ScrollPanel
-      style="width: 100%; height: 200px"
-      :dt="{
-        bar: {
-          background: '{primary.color}'
-        }
+      style="width: 100%; height: 150px"
+      :pt="{
+        barY: '!bg-#6286b6c2'
       }"
     >
       <div v-for="(item, i) in dataList" :key="i" class="text-18px color-#f0f0f0">

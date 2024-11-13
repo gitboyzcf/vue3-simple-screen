@@ -74,6 +74,12 @@ dependencies:
   vue-router:
     specifier: ^4.4.5
     version: 4.4.5(vue@3.5.12)
+  vue3-count-to:
+    specifier: ^1.1.2
+    version: 1.1.2(vue@3.5.12)
+  vue3-seamless-scroll:
+    specifier: ^2.0.1
+    version: 2.0.1
   vuedraggable:
     specifier: ^2.24.3
     version: 2.24.3
@@ -4617,6 +4623,11 @@ packages:
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
 
+  /throttle-debounce@5.0.0:
+    resolution: {integrity: sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==}
+    engines: {node: '>=12.22'}
+    dev: false
+
   /through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
@@ -5002,6 +5013,10 @@ packages:
       vue: 3.5.12(typescript@5.6.3)
     dev: false
 
+  /vue-count-to@1.0.13:
+    resolution: {integrity: sha512-6R4OVBVNtQTlcbXu6SJ8ENR35M2/CdWt3Jmv57jOUM+1ojiFmjVGvZPH8DfHpMDSA+ITs+EW5V6qthADxeyYOQ==}
+    dev: false
+
   /vue-demi@0.13.11(vue@3.5.12):
     resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
     engines: {node: '>=12'}
@@ -5093,6 +5108,22 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.12(typescript@5.6.3)
+    dev: false
+
+  /vue3-count-to@1.1.2(vue@3.5.12):
+    resolution: {integrity: sha512-C5AvlcGfyM4XvFqPDkni94rqGd5K/+RB+B4xv/1NQx3RrdC+GvXPFzeXW5hWL/jh8ehWLm4LITyK0eMKf4iJbg==}
+    peerDependencies:
+      vue: '>= 3 < 4'
+    dependencies:
+      core-js: 3.39.0
+      vue: 3.5.12(typescript@5.6.3)
+      vue-count-to: 1.0.13
+    dev: false
+
+  /vue3-seamless-scroll@2.0.1:
+    resolution: {integrity: sha512-mI3BaDU3pjcPUhVSw3/xNKdfPBDABTi/OdZaZqKysx4cSdNfGRbVvGNDzzptBbJ5S7imv5T55l6x/SqgnxKreg==}
+    dependencies:
+      throttle-debounce: 5.0.0
     dev: false
 
   /vue@3.5.12(typescript@5.6.3):

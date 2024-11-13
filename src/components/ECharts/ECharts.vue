@@ -5,7 +5,7 @@
   import * as echarts from 'echarts'
   import 'echarts-liquidfill'
 
-  let myChart = ref(null)
+  let myChart = shallowRef(null)
 
   const props = defineProps({
     // 区分chart
@@ -67,14 +67,11 @@
       text: '',
       color: '#409eff',
       textColor: '#000',
-      maskColor: 'rgba(255, 255, 255, .95)',
+      maskColor: 'rgba(56, 155, 255, .45)',
       zlevel: 0,
       lineWidth: 2
     })
-    if (!props.loading) {
-      myChart.value.hideLoading()
-      myChart.value.setOption(props.fullOptions.options, true)
-    }
+
     //自适应不同屏幕时改变图表尺寸
     window.addEventListener('resize', cancalDebounce)
   })
