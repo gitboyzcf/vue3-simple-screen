@@ -1,6 +1,8 @@
 <template>
   <div class="layout h-full w-full relative">
-    <div class="layout-map w-full h-full absolute left-0 top-0"><slot name="map"></slot></div>
+    <div class="layout-map w-full h-full absolute left-0 top-0"
+      ><slot name="map"><Map /></slot
+    ></div>
     <LayoutHeader></LayoutHeader>
     <LayoutMain>
       <template #left>
@@ -17,6 +19,7 @@
   import autofit from 'autofit.js'
   import LayoutHeader from './LayoutHeader.vue'
   import LayoutMain from './LayoutMain.vue'
+  import Map from './Map.vue'
 
   onMounted(() => {
     autofit.init({

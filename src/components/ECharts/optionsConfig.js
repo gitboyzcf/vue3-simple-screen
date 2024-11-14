@@ -1,4 +1,5 @@
 import * as echarts from 'echarts'
+import 'echarts-gl'
 export const chartOptions = {
   setOption2() {
     function Pie() {
@@ -971,6 +972,73 @@ export const chartOptions = {
             show: false
           },
           data: [300, 300, 300, 300, 300]
+        }
+      ]
+    }
+    return option
+  },
+  setMapOption(data, geoJson) {
+    echarts.registerMap('china', geoJson)
+    // 图表配置项
+    const option = {
+      tooltip: {
+        trigger: 'item',
+        position: 'inside',
+        formatter: '{b}',
+        backgroundColor: '#031e559c',
+        textStyle: {
+          color: '#FFFFFF',
+          textalign: 'center',
+          fontSize: '12px'
+        }
+      },
+      series: [
+        {
+          type: 'map3D',
+          map: 'china',
+          data: geoJson.features.map((item) => {
+            return item.properties
+          }),
+          // 地图的颜色
+          itemStyle: {
+            color: '#286ECA', // 地图板块的颜色
+            opacity: 1, // 图形的不透明度 [ default: 1 ]
+            borderWidth: 0.5, // (地图板块间的分隔线)图形描边的宽度。加上描边后可以更清晰的区分每个区域
+            borderColor: '#286ECA' // 图形描边的颜色。[ default: #333 ]
+          },
+          // 标签的相关设置
+          label: {
+            show: true, // (地图上的城市名称)是否显示标签
+            formatter: function (params) {
+              return params.name ? params.name : ' '
+            },
+            textStyle: {
+              // 标签的字体样式
+              color: '#5faeff', // 地图初始化区域字体颜色
+              fontSize: 12 // 字体大小
+            }
+          },
+          // 鼠标 hover 高亮时图形和标签的样式
+          emphasis: {
+            label: {
+              // label 高亮时的配置
+              show: true,
+              textStyle: {
+                color: '#fff', // 高亮时标签颜色变为 白色
+                fontSize: 15 // 高亮时标签字体 变大
+              }
+            },
+            itemStyle: {
+              // itemStyle 高亮时的配置
+              color: '#66ffff' // 高亮时地图板块颜色改变
+            }
+          },
+
+          viewControl: {
+            panSensitivity: 2,
+            zoomSensitivity: 2,
+            rotateSensitivity: 2
+          }
         }
       ]
     }

@@ -1,9 +1,5 @@
-import { createDiscreteApi } from 'naive-ui'
 import mitt from 'mitt'
-import dayjs from 'dayjs'
-const { message, dialog } = createDiscreteApi(['message', 'dialog'], {
-  messageProviderProps: { duration: 2000 }
-})
+
 /**
  * 获取资源路径
  * @param {相对路径} relativePath
@@ -22,9 +18,9 @@ const getStaticResource = (relativePath) => {
  * @param {配置} config
  */
 const msg = (type, text) => {
-  message[type](text)
+  // toast.add({ severity: type, summary: text })
+  console.log(text)
 }
-
 /**
  * 模块话方式处理 默认处理 modules文件夹下的所有js文件 内容以export default导出的文件
  * @param { 模块内容集合 } moduleContext
@@ -47,30 +43,4 @@ const modulesHandle = (moduleContext = {}) => {
  */
 const $mitt = mitt()
 
-/**
- *
- * 消息弹窗
- * @param {弹窗类型} type error | info | success | warning
- * @param {弹窗标题} title
- * @param {弹窗内容} content
- * @param {确认按钮} positiveText 确认按钮的文字，不填对应的按钮不会出现
- * @param {取消按钮} negativeText 取消按钮的文字，不填对应的按钮不会出现
- * @param {确认回调} okCallback
- * @param {取消回调} noCallback
- */
-const dialogFn = (type, title, content, okCallback, noCallback, positiveText, negativeText) => {
-  dialog[type]({
-    title,
-    content,
-    positiveText,
-    negativeText,
-    onPositiveClick: () => {
-      okCallback()
-    },
-    onNegativeClick: () => {
-      noCallback()
-    }
-  })
-}
-
-export { getStaticResource, msg, modulesHandle, $mitt, dialogFn }
+export { getStaticResource, msg, modulesHandle, $mitt }
