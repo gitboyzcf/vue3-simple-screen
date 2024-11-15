@@ -15,7 +15,7 @@ import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 export default ({ mode }) => {
   // const env = loadEnv(mode, process.cwd())
   return defineConfig({
-    base: './',
+    base: '/vue3-simple-screen/',
     build: {
       outDir: 'dist',
       sourcemap: false,
