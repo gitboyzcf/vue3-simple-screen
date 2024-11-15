@@ -51,11 +51,11 @@
 
 <script setup>
   import Layout from '@/layout/index.vue'
-  import TopBox from './leftBox/topBox.vue'
-  import MiddleBox from './leftBox/middleBox.vue'
+  import TopBox from './leftbox/topBox.vue'
+  import MiddleBox from './leftbox/middleBox.vue'
   import BottomBox from './leftbox/bottomBox.vue'
-  import RightTopBox from './rightBox/topBox.vue'
-  import RightBottomBox from './rightBox/bottomBox.vue'
+  import RightTopBox from './rightbox/topBox.vue'
+  import RightBottomBox from './rightbox/bottomBox.vue'
   import { $mitt } from '@/utils'
   import { useOutsideHomeStore } from '@/stores/modules/home'
   const useHomeStore = useOutsideHomeStore()
