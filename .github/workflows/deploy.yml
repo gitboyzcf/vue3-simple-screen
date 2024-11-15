@@ -30,9 +30,6 @@ jobs:
       - name: install
         run: pnpm install
 
-      - name: Oxlint
-        run: pnpm lint:fix
-
       - name: Run Build Script
         run: pnpm run build:h5
 
