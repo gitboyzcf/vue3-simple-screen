@@ -9,7 +9,7 @@ on:
   # 每当 push 到 master 分支时触发部署
   push:
     branches:
-      - main
+      - master
 
 # 当前流程要执行的任务，可以是多个。[my_first_job]就是一个任务
 jobs:
