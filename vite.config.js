@@ -6,12 +6,13 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 // import basicSsl from '@vitejs/plugin-basic-ssl'
+import deletePlugin from 'rollup-plugin-delete'
 import Unocss from 'unocss/vite'
 import { presetUno, presetAttributify, presetIcons } from 'unocss'
 import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
 // https://vitejs.dev/config/
-export default ({ mode, command }) => {
+export default ({ mode }) => {
   // const env = loadEnv(mode, process.cwd())
   return defineConfig({
     base: './',
@@ -68,6 +69,10 @@ export default ({ mode, command }) => {
       }),
       Icons({
         compiler: 'vue3'
+      }),
+      deletePlugin({
+        targets: ['dist/del'],
+        hook: 'writeBundle'
       })
     ],
     resolve: {
