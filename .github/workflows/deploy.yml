@@ -11,6 +11,11 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 # 当前流程要执行的任务，可以是多个。[my_first_job]就是一个任务
 jobs:
   build:
