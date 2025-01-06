@@ -1,4 +1,6 @@
-# Vue3、Vite5、Oxlint 最新的Web项目大屏模板
+# Vue3、Vite5、Oxlint、Unocss 最新的Web项目大屏模板
+
+![demo](/vue3-simple-screen/public/demo.gif)
 
 ## 🍭 安装使用
 
