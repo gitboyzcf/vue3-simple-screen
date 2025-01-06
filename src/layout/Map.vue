@@ -24,6 +24,7 @@
   const fullOptions = ref({ options: {} })
 
   const setData = async (code = 100000) => {
+    echartsRef.value.myChart && echartsRef.value.myChart.clear()
     const geoJSON = await API_GET_GEO_JSON_GET({ code })
     loading.value = false
     fullOptions.value.options = chartOptions.setMapOption([], geoJSON)
