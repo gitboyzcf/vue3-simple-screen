@@ -1,5 +1,7 @@
 import * as echarts from 'echarts'
 import 'echarts-gl'
+import wlimg from '../../assets/images/wl.png'
+
 export const chartOptions = {
   setOption2() {
     function Pie() {
@@ -1003,7 +1005,7 @@ export const chartOptions = {
           itemStyle: {
             color: '#286ECA', // 地图板块的颜色
             opacity: 1, // 图形的不透明度 [ default: 1 ]
-            borderWidth: 0.5, // (地图板块间的分隔线)图形描边的宽度。加上描边后可以更清晰的区分每个区域
+            borderWidth: 1, // (地图板块间的分隔线)图形描边的宽度。加上描边后可以更清晰的区分每个区域
             borderColor: '#286ECA' // 图形描边的颜色。[ default: #333 ]
           },
           // 标签的相关设置
@@ -1023,7 +1025,7 @@ export const chartOptions = {
             label: {
               // label 高亮时的配置
               show: true,
-              textStyle: {
+              axisLabel: {
                 color: '#fff', // 高亮时标签颜色变为 白色
                 fontSize: 15 // 高亮时标签字体 变大
               }
@@ -1033,11 +1035,25 @@ export const chartOptions = {
               color: '#66ffff' // 高亮时地图板块颜色改变
             }
           },
+          // 将echarts设置为纹理
+          shading: 'realistic',
+          realisticMaterial: {
+            // 引入纹理贴图
+            detailTexture: wlimg,
+            textureTiling: 1
+          },
 
           viewControl: {
-            panSensitivity: 2,
-            zoomSensitivity: 2,
-            rotateSensitivity: 2
+            panMouseButton: 'left',
+            rotateMouseButton: 'right',
+            rotateSensitivity: 1, // 旋转操作的灵敏度，值越大越灵敏
+            panSensitivity: 1, // 平移操作的灵敏度，值越大越灵敏
+            zoomSensitivity: 2, // 缩放操作的灵敏度，值越大越灵敏
+            distance: 120,
+            minAlpha: 5, // 上下旋转的最小 alpha 值。即视角能旋转到达最上面的角度。[ default: 5 ]
+            maxAlpha: 90, // 上下旋转的最大 alpha 值。即视角能旋转到达最下面的角度。[ default: 90 ]
+            minBeta: -360, // 左右旋转的最小 beta 值。即视角能旋转到达最左的角度。[ default: -80 ]
+            maxBeta: 360 // 左右旋转的最大 beta 值。即视角能旋转到达最右的角度。[ default: 80 ]
           }
         }
       ]
