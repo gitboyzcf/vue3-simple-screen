@@ -11,6 +11,12 @@
       <template #right>
         <slot name="right"></slot>
       </template>
+      <template #top>
+        <slot name="top"></slot>
+      </template>
+      <template #bottom>
+        <slot name="bottom"></slot>
+      </template>
     </LayoutMain>
   </div>
 </template>

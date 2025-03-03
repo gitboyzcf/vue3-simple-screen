@@ -8,7 +8,6 @@ import Icons from 'unplugin-icons/vite'
 // import basicSsl from '@vitejs/plugin-basic-ssl'
 import deletePlugin from 'rollup-plugin-delete'
 import Unocss from 'unocss/vite'
-import { presetUno, presetAttributify, presetIcons } from 'unocss'
 import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
 // https://vitejs.dev/config/
@@ -39,9 +38,7 @@ export default ({ mode }) => {
       vue(),
       vueJsx(),
       // basicSsl(),
-      Unocss({
-        presets: [presetUno(), presetAttributify(), presetIcons()]
-      }),
+      Unocss({}),
       AutoImport({
         imports: [
           'vue',
