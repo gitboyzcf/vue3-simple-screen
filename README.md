@@ -1,4 +1,4 @@
-# Vue3、Vite5、Oxlint、Unocss 最新的Web项目大屏模板
+# Vue3、Vite5、Oxlint、Unocss、Autofit.js 最新的Web项目大屏模板
 
 ![demo](https://github.com/gitboyzcf/vue3-simple-screen/blob/master/public/demo.gif)
 
